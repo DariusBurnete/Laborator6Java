@@ -1,7 +1,10 @@
 package org.example;
 
 public class Calculator {
-    protected float value;
+    protected float value = 0;
+
+    public Calculator(){
+    }
 
     public Calculator(float value) {
         this.value = value;
@@ -20,11 +23,15 @@ public class Calculator {
     }
 
     public void div(float other){
-        this.value /= other;
+        if(other == 0) throw new ArithmeticException("Cannot divide by zero.");
+        else {
+            this.value /= other;
+        }
     }
 
     public float getResult(){
         return this.value;
     }
+
 }
 
